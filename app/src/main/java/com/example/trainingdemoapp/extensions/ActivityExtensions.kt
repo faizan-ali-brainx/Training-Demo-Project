@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 
 fun <T> Activity.startExtActivity(
     activityClass: Class<T>,
@@ -23,4 +24,17 @@ fun <T> Activity.startExtActivity(
     }
     if (isFinishAffinity) finishAffinity()
     if (isFinish && !isFinishAffinity) finish()
+}
+
+fun Activity.showToast(message: Any?) {
+    val messageString = when (message) {
+        is String -> message
+        is Int -> getString(message)
+        else -> null
+    }
+    if (messageString.isNullOrEmpty()) return
+    try {
+        Toast.makeText(this, messageString, Toast.LENGTH_SHORT).show()
+    } catch (e: Exception) {
+    }
 }

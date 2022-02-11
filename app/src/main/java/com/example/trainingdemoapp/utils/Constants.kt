@@ -1,5 +1,7 @@
 package com.example.trainingdemoapp.utils
 
 object Constants {
-    const val SPLASH_DELAY = 3000L
+    const val ZERO = 0
+    const val EMPTY_STRING = ""
+    const val MSG = "msg"
 }
