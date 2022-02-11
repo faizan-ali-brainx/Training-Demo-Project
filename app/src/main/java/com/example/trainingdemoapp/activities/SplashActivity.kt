@@ -14,19 +14,12 @@ import kotlinx.coroutines.launch
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        checkAndroidVersion()
+        installSplashScreen()
         setContentView(R.layout.activity_splash)
+        openNextActivity()
     }
 
-    private fun checkAndroidVersion() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
-            installSplashScreen()
-            startExtActivity(MainActivity::class.java)
-        } else {
-            lifecycleScope.launch(Dispatchers.Main) {
-                delay(SPLASH_DELAY)
-                startExtActivity(MainActivity::class.java)
-            }
-        }
+    private fun openNextActivity() {
+        startExtActivity(LoginActivity::class.java)
     }
 }
