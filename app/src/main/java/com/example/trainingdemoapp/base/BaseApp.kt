@@ -22,10 +22,13 @@ class BaseApp : Application() {
         appInstance = this
         super.onCreate()
         NetworkApi.setBaseUrl(BuildConfig.BASE_URL)
+        NetworkApi.headerMap = hashMapOf(
+            "Content-Type" to "application/json",
+            "app-platform" to "android",
+            "app-version" to BuildConfig.VERSION_NAME
+        )
     }
     //endregion
-
-
 
 
 }

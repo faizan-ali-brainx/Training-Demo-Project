@@ -1,6 +1,7 @@
 package com.example.trainingdemoapp.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.example.trainingdemoapp.base.BaseActivity
 import com.example.trainingdemoapp.databinding.ActivityLoginBinding
@@ -20,6 +21,12 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
     override fun getViewBinding() = ActivityLoginBinding.inflate(layoutInflater)
 
     override fun customOnCreate(savedInstanceState: Bundle?) {
+
+    }
+    // end region
+
+    // region public funtions
+    fun hideAndShowPassword(view: View) {
 
     }
     // end region
