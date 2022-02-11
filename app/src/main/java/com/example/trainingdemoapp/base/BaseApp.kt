@@ -4,7 +4,9 @@ import android.app.Application
 import android.content.Context
 import com.example.trainingdemoapp.BuildConfig
 import com.example.trainingdemoapp.network.NetworkApi
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class BaseApp : Application() {
 
     // region companion object

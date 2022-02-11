@@ -1,12 +1,27 @@
 package com.example.trainingdemoapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.trainingdemoapp.R
+import androidx.activity.viewModels
+import com.example.trainingdemoapp.base.BaseActivity
+import com.example.trainingdemoapp.databinding.ActivityLoginBinding
+import com.example.trainingdemoapp.extensions.showToast
+import com.example.trainingdemoapp.viewModels.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class LoginActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+@AndroidEntryPoint
+class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
+
+    // region private properties
+    // end region
+
+    // region lifeCycle methods
+    override val mViewModel: LoginViewModel by viewModels()
+
+    override fun getViewBinding() = ActivityLoginBinding.inflate(layoutInflater)
+
+    override fun customOnCreate(savedInstanceState: Bundle?) {
+
     }
+    // end region
+
 }
