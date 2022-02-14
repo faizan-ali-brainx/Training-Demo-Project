@@ -3,9 +3,12 @@ package com.example.trainingdemoapp.activities
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import com.example.trainingdemoapp.R
 import com.example.trainingdemoapp.base.BaseActivity
 import com.example.trainingdemoapp.databinding.ActivityLoginBinding
+import com.example.trainingdemoapp.extensions.enablePasswordVisibility
 import com.example.trainingdemoapp.extensions.showToast
+import com.example.trainingdemoapp.extensions.startExtActivity
 import com.example.trainingdemoapp.viewModels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     // region private properties
+    private var isVisiblePwd = false
     // end region
 
     // region lifeCycle methods
@@ -21,11 +25,28 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
     override fun getViewBinding() = ActivityLoginBinding.inflate(layoutInflater)
 
     override fun customOnCreate(savedInstanceState: Bundle?) {
+        mViewBinding.viewModel = mViewModel
+        setLoginObservers()
+    }
+    // end region
 
+    // region private functions
+    private fun setLoginObservers() {
+        mViewModel.logInObserver.observe(this, {
+            if (it)
+                startExtActivity(MainActivity::class.java, isFinish = true)
+        })
     }
     // end region
 
     // region public functions
+    fun hideAndShowPassword(v: View) {
+        mViewBinding.apply {
+            imgHideshowpwd.setImageResource(if (isVisiblePwd) R.drawable.ic_eye else R.drawable.ic_closed_eye)
+            edtPassword.enablePasswordVisibility(!isVisiblePwd)
+        }
+        isVisiblePwd = !isVisiblePwd
+    }
     // end region
 
 }

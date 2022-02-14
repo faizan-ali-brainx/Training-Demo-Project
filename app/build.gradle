@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "String", "BASE_URL", "\"https://balanced-healing-app.herokuapp.com\""
+            buildConfigField "String", "BASE_URL", "\"https://brainx-levelup-dev.herokuapp.com\""
         }
 
         release {

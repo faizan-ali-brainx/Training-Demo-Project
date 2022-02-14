@@ -2,6 +2,9 @@ package com.example.trainingdemoapp.sharedPreference
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.trainingdemoapp.models.UserModel
+import com.example.trainingdemoapp.utils.toJson
+import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -11,7 +14,11 @@ class SharedPreference @Inject constructor(@ApplicationContext val context: Cont
 
     enum class SpKeys(val key: String) {
         FILE_NAME("Demo"),
-        IS_USER_LOGIN("isUserLogin")
+        IS_USER_LOGIN("isUserLogin"),
+        TOKEN("token"),
+        UID("uid"),
+        CLIENT("client"),
+        USER_DATA("user")
     }
 
     private val preferences =
@@ -52,6 +59,29 @@ class SharedPreference @Inject constructor(@ApplicationContext val context: Cont
                 putBoolean(SpKeys.IS_USER_LOGIN.key, isUserCreated)
                 apply()
             }
+        }
+
+    var tokenStore: String?
+        get() = getSharedPreferenceStringEmptyDefault(SpKeys.TOKEN.key)
+        set(token) = putSharedPreferenceString(SpKeys.TOKEN.key, token)
+
+    var uidStore: String?
+        get() = getSharedPreferenceStringEmptyDefault(SpKeys.UID.key)
+        set(token) = putSharedPreferenceString(SpKeys.UID.key, token)
+
+    var clientStore: String?
+        get() = getSharedPreferenceStringEmptyDefault(SpKeys.CLIENT.key)
+        set(token) = putSharedPreferenceString(SpKeys.CLIENT.key, token)
+
+    var userData: UserModel?
+        get() {
+            return Gson().fromJson(
+                getSharedPreferenceStringEmptyDefault(SpKeys.USER_DATA.key),
+                UserModel::class.java
+            )
+        }
+        set(model) {
+            putSharedPreferenceString(SpKeys.USER_DATA.key, model?.toJson())
         }
 
 }

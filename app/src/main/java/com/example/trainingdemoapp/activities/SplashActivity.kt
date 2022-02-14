@@ -5,16 +5,30 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.trainingdemoapp.R
 import com.example.trainingdemoapp.extensions.startExtActivity
+import com.example.trainingdemoapp.sharedPreference.SharedPreference
 
 class SplashActivity : AppCompatActivity() {
+
+    // region private properties
+    private lateinit var sharedPreferences: SharedPreference
+    // end region
+
+    // region lifecycle methods
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContentView(R.layout.activity_splash)
-        openNextActivity()
+        openNextScreen()
     }
+    // end region
 
-    private fun openNextActivity() {
-        startExtActivity(LoginActivity::class.java, isFinish = true)
+    // region private funtions
+    private fun openNextScreen() {
+        sharedPreferences = SharedPreference(applicationContext)
+        if (sharedPreferences.isUerLogin)
+            startExtActivity(MainActivity::class.java, isFinish = true)
+        else
+            startExtActivity(LoginActivity::class.java, isFinish = true)
     }
+    // end region
 }
