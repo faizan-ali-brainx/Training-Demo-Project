@@ -1,7 +1,12 @@
 package com.example.trainingdemoapp.base
 
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
@@ -62,8 +67,20 @@ abstract class BaseActivity<VM : ViewModel, VB : ViewDataBinding> : AppCompatAct
         dismiss()
     }
 
+    fun onBackClick(view: View) {
+        onBackPressed()
+    }
+
     fun showToastMessage(message: Any?) {
         showToast(message)
+    }
+
+    fun statusBarColor(id: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window: Window = window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor = ContextCompat.getColor(this, id)
+        }
     }
     //endregion
 
