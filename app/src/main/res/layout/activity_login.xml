@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.trainingdemoapp.viewModels.LoginViewModel" />
+
+        <variable
+            name="activity"
+            type="com.example.trainingdemoapp.activities.LoginActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.authActivites.LoginActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintGuide_percent="0.09" />
+
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_40"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/imagedes"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/guideline_vertical_start"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/guideline_vertical_start"
+            app:layout_constraintTop_toBottomOf="@+id/img_logo">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_40"
+                    android:fontFamily="@font/geometosneuebold"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_18"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_40"
+                    android:layout_marginTop="@dimen/margin_40"
+                    android:background="@drawable/button_bg_gray"
+                    android:fontFamily="@font/ubuntu"
+                    android:hint="@string/enter_email_address"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/padding_10"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/bordercolor"
+                    android:textSize="@dimen/text_size_10"
+                    tools:ignore="RtlSymmetry" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:background="@drawable/button_bg_gray">
+
+                    <EditText
+                        android:id="@+id/edt_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_40"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/img_hideshowpwd"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/ubuntu"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:paddingStart="@dimen/padding_10"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/bordercolor"
+                        android:textSize="@dimen/text_size_10"
+                        tools:ignore="Autofill,RtlSymmetry" />
+
+                    <ImageView
+                        android:id="@+id/img_hideshowpwd"
+                        android:layout_width="@dimen/margin_20"
+                        android:layout_height="@dimen/margin_20"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/margin_5"
+                        android:contentDescription="@string/imagedes"
+                        android:src="@drawable/ic_eye" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_forgetpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:fontFamily="@font/ubuntu"
+                    android:gravity="right"
+                    android:onClick="onLoginClick"
+                    android:text="@string/forgot_password"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_size_12"
+                    tools:ignore="RtlHardcoded" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_40"
+                    android:layout_marginTop="@dimen/margin_18"
+                    app:cardBackgroundColor="@color/blue"
+                    app:cardCornerRadius="@dimen/radius_4"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:id="@+id/login_bv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/login_text"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_14" />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
