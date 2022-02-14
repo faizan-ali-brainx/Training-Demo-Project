@@ -25,10 +25,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
     }
     // end region
 
-    // region public funtions
-    fun hideAndShowPassword(view: View) {
-
-    }
+    // region public functions
     // end region
 
 }

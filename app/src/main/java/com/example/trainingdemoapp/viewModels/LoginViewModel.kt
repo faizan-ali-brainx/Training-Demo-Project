@@ -25,10 +25,6 @@ class LoginViewModel @Inject constructor(
     // end region
 
     // region public functions
-
-    fun onLoginClick(view: View) {
-
-    }
     // end region
 
     // region private funtions
