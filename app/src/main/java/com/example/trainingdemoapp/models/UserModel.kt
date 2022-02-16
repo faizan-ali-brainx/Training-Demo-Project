@@ -1,7 +1,5 @@
 package com.example.trainingdemoapp.models
 
-import android.os.Parcelable
-import androidx.databinding.ObservableField
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

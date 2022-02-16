@@ -8,15 +8,11 @@ import com.example.trainingdemoapp.adpaters.MainMenuPagerAdapter
 import com.example.trainingdemoapp.base.BaseActivity
 import com.example.trainingdemoapp.databinding.ActivityMainBinding
 import com.example.trainingdemoapp.extensions.*
-import com.example.trainingdemoapp.utils.Constants.ONE
-import com.example.trainingdemoapp.utils.Constants.THREE
 import com.example.trainingdemoapp.utils.Constants.ZERO
 import com.example.trainingdemoapp.viewModels.MainViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.bottom_nav_layout.*
-import kotlinx.android.synthetic.main.bottom_nav_layout.item_icon
-import kotlinx.android.synthetic.main.bottom_nav_layout.title_tv
 import kotlinx.android.synthetic.main.bottom_nav_layout.view.*
 
 @AndroidEntryPoint

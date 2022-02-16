@@ -1,6 +1,5 @@
 package com.example.trainingdemoapp.adpaters
 
-import android.provider.Contacts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter

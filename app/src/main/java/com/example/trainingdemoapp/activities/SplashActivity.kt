@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.trainingdemoapp.R
-import com.example.trainingdemoapp.base.BaseActivity
 import com.example.trainingdemoapp.extensions.startExtActivity
 import com.example.trainingdemoapp.sharedPreference.SharedPreference
 

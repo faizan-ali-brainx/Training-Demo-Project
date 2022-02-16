@@ -8,7 +8,6 @@ import com.example.trainingdemoapp.base.BaseActivity
 import com.example.trainingdemoapp.databinding.ActivityLoginBinding
 import com.example.trainingdemoapp.extensions.enablePasswordVisibility
 import com.example.trainingdemoapp.extensions.loadImage
-import com.example.trainingdemoapp.extensions.showToast
 import com.example.trainingdemoapp.extensions.startExtActivity
 import com.example.trainingdemoapp.viewModels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
