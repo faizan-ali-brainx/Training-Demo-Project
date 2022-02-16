@@ -9,7 +9,4 @@ object Constants {
     const val FIVE = 5
     const val EMPTY_STRING = ""
     const val MSG = "msg"
-    const val BOTTOM_NAV_ITEM_HOME = "Home"
-    const val BOTTOM_NAV_ITEM_NOTIFICATIONS = "Notifications"
-    const val BOTTOM_NAV_ITEM_SETTINGS = "Settings"
 }

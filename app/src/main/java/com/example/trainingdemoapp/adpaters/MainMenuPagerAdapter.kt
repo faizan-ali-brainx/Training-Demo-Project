@@ -12,11 +12,11 @@ import com.example.trainingdemoapp.fragments.SettingsFragment
 class MainMenuPagerAdapter(fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    var fragmentList: MutableList<Fragment> =
+    val fragmentList: MutableList<Fragment> =
         mutableListOf(HomeFragment(), NotificationsFragment(), SettingsFragment())
-    var fragmentTitles: List<Int> =
+    val fragmentTitles: List<Int> =
         listOf(R.string.home, R.string.notifications, R.string.settings)
-    var fragmentIcons: List<Int> =
+    val fragmentIcons: List<Int> =
         listOf(R.drawable.home, R.drawable.notification, R.drawable.settings)
 
     override fun getItem(position: Int): Fragment = fragmentList[position]

@@ -28,7 +28,6 @@ object ProgressLoader : CoroutineScope {
         dismiss()
         KProgressHUD.create(activity).apply {
             setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-            // setBackgroundColor(ContextCompat.getColor(activity, R.color.colorProgressBg))
             setCancellable(isCancellable)
             setAnimationSpeed(2)
             setDimAmount(0.5f)

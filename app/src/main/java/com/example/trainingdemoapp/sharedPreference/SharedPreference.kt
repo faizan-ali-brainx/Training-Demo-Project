@@ -40,6 +40,17 @@ class SharedPreference @Inject constructor(@ApplicationContext val context: Cont
         }
     }
 
+    private fun getSharedPreferenceBoolean(key: String):Boolean{
+        return preferences.getBoolean(key, false)
+    }
+
+    private fun putSharedPreferenceBoolean(key: String,value:Boolean){
+        editor.apply {
+            putBoolean(key, value)
+            apply()
+        }
+    }
+
     private fun getSharedPreferenceIntEmptyDefault(key: String): Int {
         return preferences.getInt(key, 0)
     }
@@ -51,15 +62,9 @@ class SharedPreference @Inject constructor(@ApplicationContext val context: Cont
         }
     }
 
-
     var isUerLogin: Boolean
-        get() = preferences.getBoolean(SpKeys.IS_USER_LOGIN.key, false)
-        set(isUserCreated) {
-            editor.apply {
-                putBoolean(SpKeys.IS_USER_LOGIN.key, isUserCreated)
-                apply()
-            }
-        }
+        get() = getSharedPreferenceBoolean(SpKeys.IS_USER_LOGIN.key)
+        set(isUerLogin) = putSharedPreferenceBoolean(SpKeys.IS_USER_LOGIN.key, isUerLogin)
 
     var tokenStore: String?
         get() = getSharedPreferenceStringEmptyDefault(SpKeys.TOKEN.key)

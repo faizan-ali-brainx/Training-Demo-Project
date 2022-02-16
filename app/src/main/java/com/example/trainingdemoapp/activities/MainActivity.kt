@@ -61,15 +61,12 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
                     setCustomView(R.layout.bottom_nav_layout)
                     customView?.apply {
                         mainPagerAdapter.apply {
-                            item_icon?.setImageResource(fragmentIcons[tabIndex])
-                            title_tv?.apply {
-                                text = resources.getString(fragmentTitles[tabIndex])
-                            }
+                            item_icon?.loadImage(fragmentIcons[tabIndex])
+                            title_tv?.text = resources.getString(fragmentTitles[tabIndex])
                         }
                     }
                 }
             }
-
         }
     }
 
@@ -81,11 +78,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     private fun changeTabIconAndTextColor(customView: View?, isSelected: Boolean, position: Int) {
-        if (position != ZERO) {
-            statusBarColor(R.color.white)
-        } else {
-            statusBarColor(R.color.bgcolor)
-        }
+        statusBarColor(if (position != ZERO) R.color.white else R.color.bgcolor)
         val textColor = if (isSelected) R.color.headingcolor else R.color.plan_values_color
         val iconColor = if (isSelected) R.color.colorBlueFF else R.color.textcolor
         customView?.apply {

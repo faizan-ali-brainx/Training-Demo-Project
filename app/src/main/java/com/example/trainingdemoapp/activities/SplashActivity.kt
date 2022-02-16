@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.trainingdemoapp.R
+import com.example.trainingdemoapp.base.BaseActivity
 import com.example.trainingdemoapp.extensions.startExtActivity
 import com.example.trainingdemoapp.sharedPreference.SharedPreference
 
@@ -25,10 +26,10 @@ class SplashActivity : AppCompatActivity() {
     // region private funtions
     private fun openNextScreen() {
         sharedPreferences = SharedPreference(applicationContext)
-        if (sharedPreferences.isUerLogin)
-            startExtActivity(MainActivity::class.java, isFinish = true)
-        else
-            startExtActivity(LoginActivity::class.java, isFinish = true)
+        startExtActivity(
+            if (sharedPreferences.isUerLogin) MainActivity::class.java else LoginActivity::class.java,
+            isFinish = true
+        )
     }
     // end region
 }

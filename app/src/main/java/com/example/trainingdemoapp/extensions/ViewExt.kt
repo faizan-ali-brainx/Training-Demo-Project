@@ -6,6 +6,12 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.trainingdemoapp.base.BaseApp
 
+fun View.beInvisibleIf(beInvisible: Boolean) = if (beInvisible) beInvisible() else beVisible()
+
+fun View.beVisibleIf(beVisible: Boolean) = if (beVisible) beVisible() else beGone()
+
+fun View.beGoneIf(beGone: Boolean) = beVisibleIf(!beGone)
+
 fun View.beInvisible() {
     visibility = View.INVISIBLE
 }
