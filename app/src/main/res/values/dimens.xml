@@ -151,6 +151,7 @@
     <dimen name="radius_8">8dp</dimen>
     <dimen name="radius_9">9dp</dimen>
     <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_12">12dp</dimen>
     <dimen name="radius_18">18dp</dimen>
     <dimen name="radius_25">25dp</dimen>
 
@@ -174,4 +175,8 @@
     <dimen name="bottom_nav_icon_dimension">24dp</dimen>
     <dimen name="seekbar_height">38dp</dimen>
     <dimen name="seekbar_width">104dp</dimen>
+    <dimen name="home_screen_image_width">120dp</dimen>
+    <dimen name="home_screen_image_height">60dp</dimen>
+    <dimen name="home_screen_card_height">108dp</dimen>
+    <dimen name="home_qoute_image_height">118dp</dimen>
 </resources>
