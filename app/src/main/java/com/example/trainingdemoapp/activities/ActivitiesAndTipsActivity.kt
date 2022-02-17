@@ -44,10 +44,12 @@ class ActivitiesAndTipsActivity :
                     offscreenPageLimit = fragmentList.size
                     adapter = this@apply
                 }
-                tabLayout.setupWithViewPager(viewPager)
-                setTabs()
-                selectTab(Constants.ZERO)
-                tabLayout.addOnTabSelectedListener(pagerTabListener)
+                tabLayout.apply {
+                    setupWithViewPager(viewPager)
+                    setTabs()
+                    selectTab(Constants.ZERO)
+                    addOnTabSelectedListener(pagerTabListener)
+                }
             }
         }
     }

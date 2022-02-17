@@ -22,7 +22,8 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "String", "BASE_URL", "\"https://brainx-levelup-dev.herokuapp.com\""
+//            buildConfigField "String", "BASE_URL", "\"https://brainx-levelup-dev.herokuapp.com\""
+            buildConfigField "String", "BASE_URL", "\"https://production.cblevelup.com/\""
         }
 
         release {
@@ -87,5 +88,5 @@ dependencies {
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-//    implementation 'com.commonsware.cwac:anddown:0.4.0'
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
 }

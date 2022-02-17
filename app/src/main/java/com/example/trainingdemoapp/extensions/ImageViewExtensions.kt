@@ -7,12 +7,15 @@ import android.view.View
 import android.webkit.URLUtil
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.databinding.ObservableField
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.example.trainingdemoapp.R
 import java.io.File
 
 @SuppressLint("CheckResult")
@@ -80,4 +83,71 @@ fun ImageView.loadImage(
         requestCreator.into(this)
     } catch (ex: Exception) {
     }
+}
+
+fun loadImageFromInternetGlide(
+    view: ImageView,
+    thumbnailUrl: String?,
+    isLoading: ObservableField<Boolean>
+) {
+    val requestOptions = RequestOptions()
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+    Glide.with(view.context).load(thumbnailUrl)
+        .error(R.drawable.no_image)
+        .centerCrop().fitCenter()
+        .apply(requestOptions)
+        .listener(object : RequestListener<Drawable> {
+            override fun onResourceReady(
+                resource: Drawable?,
+                model: Any?,
+                target: Target<Drawable>?,
+                dataSource: DataSource?,
+                isFirstResource: Boolean
+            ): Boolean {
+                isLoading.set(true)
+                return false
+            }
+
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any?,
+                target: Target<Drawable>?,
+                isFirstResource: Boolean
+            ): Boolean {
+                isLoading.set(true)
+                return false
+            }
+        })
+        .into(view)
+}
+
+fun loadNoImageAvailable(view: ImageView, isLoading: ObservableField<Boolean>? = null) {
+    val requestOptions = RequestOptions()
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+    Glide.with(view.context).load(R.drawable.no_image)
+        .centerCrop().fitCenter()
+        .apply(requestOptions)
+        .listener(object : RequestListener<Drawable> {
+            override fun onResourceReady(
+                resource: Drawable?,
+                model: Any?,
+                target: Target<Drawable>?,
+                dataSource: DataSource?,
+                isFirstResource: Boolean
+            ): Boolean {
+                isLoading?.set(true)
+                return false
+            }
+
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any?,
+                target: Target<Drawable>?,
+                isFirstResource: Boolean
+            ): Boolean {
+                isLoading?.set(true)
+                return false
+            }
+        })
+        .into(view)
 }

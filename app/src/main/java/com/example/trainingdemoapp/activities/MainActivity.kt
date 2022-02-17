@@ -3,6 +3,7 @@ package com.example.trainingdemoapp.activities
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.trainingdemoapp.R
 import com.example.trainingdemoapp.adpaters.MainMenuPagerAdapter
 import com.example.trainingdemoapp.base.BaseActivity

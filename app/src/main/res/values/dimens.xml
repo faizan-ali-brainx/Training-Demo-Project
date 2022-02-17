@@ -180,4 +180,5 @@
     <dimen name="home_screen_card_height">108dp</dimen>
     <dimen name="home_qoute_image_height">118dp</dimen>
     <dimen name="tab_indicator_padding_bottom">-1dp</dimen>
+    <dimen name="video_view_height">114dp</dimen>
 </resources>

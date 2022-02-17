@@ -2,6 +2,7 @@ package com.example.trainingdemoapp
 
 import com.example.trainingdemoapp.network.ResultState
 import com.example.trainingdemoapp.helpers.request
+import com.example.trainingdemoapp.models.TipsVideos
 import com.example.trainingdemoapp.models.UserModel
 import com.example.trainingdemoapp.network.AppException
 import com.example.trainingdemoapp.network.SERVICE
@@ -31,6 +32,23 @@ class Repository @Inject constructor(private val sharedPreference: SharedPrefere
                         clientStore = headers?.get(CLIENT).toString()
                         userData = result.data
                     }
+                    data(result.data)
+                }
+                is ResultState.Error -> {
+                    error(result.error)
+                }
+            }
+        })
+    }
+
+    suspend fun getTipsVideos(
+        page: Int,
+        data: (TipsVideos?) -> Unit,
+        error: (AppException) -> Unit
+    ) {
+        request({ SERVICE.tipsVideos(page) }, { result, _ ->
+            when(result) {
+                is ResultState.Success -> {
                     data(result.data)
                 }
                 is ResultState.Error -> {

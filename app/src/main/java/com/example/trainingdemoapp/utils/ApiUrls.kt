@@ -10,5 +10,5 @@ object ApiUrls {
     private const val USERS_API_SUB_ROOT = "${API}${VERSION}${USERS}"
     private const val USER_API_SUB_ROOT = "${API}${VERSION}${USER}"
     const val SIGN_IN = "/${USERS_API_SUB_ROOT}sign_in.json"
-
+    const val TIPS = "/${API}${VERSION}tips"
 }
