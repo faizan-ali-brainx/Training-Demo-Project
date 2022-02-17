@@ -15,7 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.appTheme"
         tools:replace="android:label,android:allowBackup">
-        <activity android:name=".activities.ActivitiesAndTipsActivity"></activity>
+        <activity android:name=".activities.ActivitiesAndTipsActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/getStatedTheme"/>
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"

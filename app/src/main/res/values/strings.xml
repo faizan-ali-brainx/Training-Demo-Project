@@ -217,5 +217,7 @@
     <string name="event_time_has_passed">Event Time has passed</string>
     <string name="dummyQoute">You can make excuses and you can make money, but you cannot make both.</string>
     <string name="dummyAuthor">Ziad K. Abdelnour</string>
+    <string name="tips">Tips</string>
+    <string name="activities">Activities</string>
 
 </resources>

@@ -78,7 +78,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         val textColor = if (isSelected) R.color.headingcolor else R.color.plan_values_color
         val iconColor = if (isSelected) R.color.colorBlueFF else R.color.textcolor
         customView?.apply {
-            title_tv?.setCustomTextColor(textColor)
+            title_tv?.setTextColor(textColor)
             item_icon?.colorFilter =
                 getFilterColor(
                     this@MainActivity,

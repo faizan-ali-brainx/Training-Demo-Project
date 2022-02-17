@@ -2,7 +2,9 @@ package com.example.trainingdemoapp.extensions
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.example.trainingdemoapp.base.BaseApp
 
