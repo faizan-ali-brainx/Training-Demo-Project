@@ -7,6 +7,7 @@ import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trainingdemoapp.R
 import com.example.trainingdemoapp.databinding.TrainingVideoItemLayoutBinding
+import com.example.trainingdemoapp.interfaces.VideoClickListener
 import com.example.trainingdemoapp.models.VideosModel
 
 class VideoViewHolder(val itemBinding: TrainingVideoItemLayoutBinding) :
@@ -33,10 +34,6 @@ class VideoViewHolder(val itemBinding: TrainingVideoItemLayoutBinding) :
                 )
             return VideoViewHolder(binding)
         }
-    }
-
-    interface VideoClickListener {
-        fun onVideoItemClicked(video: VideosModel)
     }
 
 }

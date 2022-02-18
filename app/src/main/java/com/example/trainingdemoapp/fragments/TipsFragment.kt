@@ -8,6 +8,7 @@ import com.example.trainingdemoapp.activities.ActivitiesAndTipsActivity
 import com.example.trainingdemoapp.adpaters.TipsVideoAdapter
 import com.example.trainingdemoapp.base.BaseFragment
 import com.example.trainingdemoapp.databinding.FragmentTipsBinding
+import com.example.trainingdemoapp.interfaces.VideoClickListener
 import com.example.trainingdemoapp.models.VideosModel
 import com.example.trainingdemoapp.utils.Constants.ONE
 import com.example.trainingdemoapp.utils.Constants.TWO
@@ -17,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TipsFragment : BaseFragment<TipsViewModel, FragmentTipsBinding>(),
-    VideoViewHolder.VideoClickListener {
+    VideoClickListener {
 
     // region private properties
     private var videoList = ArrayList<VideosModel>()
