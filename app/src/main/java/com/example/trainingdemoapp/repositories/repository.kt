@@ -2,7 +2,7 @@ package com.example.trainingdemoapp
 
 import com.example.trainingdemoapp.network.ResultState
 import com.example.trainingdemoapp.helpers.request
-import com.example.trainingdemoapp.models.NotifiactionsResponse
+import com.example.trainingdemoapp.models.NotificationsResponse
 import com.example.trainingdemoapp.models.TipsVideos
 import com.example.trainingdemoapp.models.UserModel
 import com.example.trainingdemoapp.network.AppException
@@ -47,7 +47,14 @@ class Repository @Inject constructor(private val sharedPreference: SharedPrefere
         data: (TipsVideos?) -> Unit,
         error: (AppException) -> Unit
     ) {
-        request({ SERVICE.tipsVideos(page) }, { result, _ ->
+        request({
+            SERVICE.tipsVideos(
+                sharedPreference.tokenStore.toString(),
+                sharedPreference.uidStore.toString(),
+                sharedPreference.clientStore.toString(),
+                page
+            )
+        }, { result, _ ->
             when (result) {
                 is ResultState.Success -> {
                     data(result.data)
@@ -61,10 +68,17 @@ class Repository @Inject constructor(private val sharedPreference: SharedPrefere
 
     suspend fun getNotifications(
         page: Int,
-        data: (NotifiactionsResponse?) -> Unit,
+        data: (NotificationsResponse?) -> Unit,
         error: (AppException) -> Unit
     ) {
-        request({ SERVICE.getNotifications(page) }, { result, _ ->
+        request({
+            SERVICE.getNotifications(
+                sharedPreference.tokenStore.toString(),
+                sharedPreference.uidStore.toString(),
+                sharedPreference.clientStore.toString(),
+                page
+            )
+        }, { result, _ ->
             when (result) {
                 is ResultState.Success -> {
                     data(result.data)

@@ -2,11 +2,12 @@ package com.example.trainingdemoapp.adpaters
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.trainingdemoapp.interfaces.VideoClickListener
 import com.example.trainingdemoapp.models.VideosModel
 import com.example.trainingdemoapp.viewHolders.VideoViewHolder
 
 class TipsVideoAdapter(
-    private val mListener: VideoViewHolder.VideoClickListener
+    private val mListener: VideoClickListener
 ): RecyclerView.Adapter<VideoViewHolder>() {
 
     var videoList: ArrayList<VideosModel> = ArrayList()

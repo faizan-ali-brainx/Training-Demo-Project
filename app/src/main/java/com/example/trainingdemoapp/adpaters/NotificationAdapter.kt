@@ -7,9 +7,18 @@ import com.example.trainingdemoapp.models.NotificationModel
 import com.example.trainingdemoapp.viewHolders.NotificationViewHolder
 
 class NotificationAdapter(
-    private val notificationList:List<NotificationModel>,
     private val mListener: NotificationClickListener
 ): RecyclerView.Adapter<NotificationViewHolder>() {
+
+    private var notificationList: MutableList<NotificationModel> = mutableListOf()
+
+    fun setlist(list: List<NotificationModel>) {
+        notificationList.apply {
+            clear()
+            addAll(list)
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder =
         NotificationViewHolder.from(parent)
 

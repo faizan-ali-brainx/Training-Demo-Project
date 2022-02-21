@@ -27,10 +27,7 @@ class BaseApp : Application() {
             NetworkApi.headerMap = hashMapOf(
                 "Content-Type" to "application/json",
                 "app-platform" to "android",
-                "app-version" to BuildConfig.VERSION_NAME,
-                "access-token" to tokenStore.toString(),
-                "client" to clientStore.toString(),
-                "uid" to uidStore.toString()
+                "app-version" to BuildConfig.VERSION_NAME
             )
         }
     }
