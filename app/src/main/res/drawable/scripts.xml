@@ -1,0 +1,31 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="56dp"
+    android:height="53dp"
+    android:viewportWidth="56"
+    android:viewportHeight="53">
+  <group>
+    <clip-path
+        android:pathData="M0,0H56a0,0 0,0 1,0 0V41A12,12 0,0 1,44 53H0a0,0 0,0 1,0 0V0A0,0 0,0 1,0 0Z"/>
+    <path
+        android:pathData="M53,53m-53,0a53,53 0,1 1,106 0a53,53 0,1 1,-106 0">
+      <aapt:attr name="android:fillColor">
+        <gradient 
+            android:startY="106"
+            android:startX="43.566"
+            android:endY="-2.5811421E-15"
+            android:endX="42.612"
+            android:type="linear">
+          <item android:offset="0" android:color="#FF007AFF"/>
+          <item android:offset="1" android:color="#FF97C9FF"/>
+        </gradient>
+      </aapt:attr>
+    </path>
+    <path
+        android:pathData="M44.055,57.3649a16.31,16.31 0,1 1,16.309 -16.31A16.329,16.329 0,0 1,44.055 57.3649Z"
+        android:fillColor="#fff"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M49.064,31.9189h-0.191a0.578,0.578 0,0 0,-0.1 0L39.823,31.9189A2.021,2.021 0,0 0,37.802 33.9389v9.53L35.492,43.4689A0.578,0.578 0,0 0,34.914 44.0459v2.021A2.021,2.021 0,0 0,36.935 48.0889h8.952a0.578,0.578 0,0 0,0.1 0h0.191a2.021,2.021 0,0 0,2.021 -2.021L48.199,36.5379h2.31a0.578,0.578 0,0 0,0.578 -0.578L51.087,33.9389A2.021,2.021 0,0 0,49.064 31.9189ZM36.069,46.0679L36.069,44.6189h8.086v1.444a1.993,1.993 0,0 0,0.2 0.866L36.935,46.9289A0.866,0.866 0,0 1,36.069 46.0679ZM47.043,46.0679a0.866,0.866 0,0 1,-1.733 0L45.31,44.0459a0.578,0.578 0,0 0,-0.578 -0.578L38.957,43.4679L38.957,33.9389a0.866,0.866 0,0 1,0.866 -0.866h7.422a1.993,1.993 0,0 0,-0.2 0.866ZM49.93,35.3829L48.198,35.3829L48.198,33.9389a0.866,0.866 0,0 1,1.733 0ZM45.31,35.9609a0.578,0.578 0,0 1,-0.578 0.578L41.267,36.5389a0.578,0.578 0,1 1,0 -1.155h3.465A0.578,0.578 0,0 1,45.314 35.9599ZM43.577,39.4259a0.578,0.578 0,0 1,-0.578 0.578L41.267,40.0039a0.578,0.578 0,1 1,0 -1.155h1.733A0.578,0.578 0,0 1,43.577 39.4259Z"/>
+  </group>
+</vector>
