@@ -1,7 +1,12 @@
 package com.example.trainingdemoapp.activities
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.View
+import android.view.View.MeasureSpec
 import androidx.activity.viewModels
 import com.example.trainingdemoapp.R
 import com.example.trainingdemoapp.base.BaseActivity
@@ -11,6 +16,7 @@ import com.example.trainingdemoapp.extensions.loadImage
 import com.example.trainingdemoapp.extensions.startExtActivity
 import com.example.trainingdemoapp.viewModels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
@@ -26,16 +32,31 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override fun customOnCreate(savedInstanceState: Bundle?) {
         mViewBinding.viewModel = mViewModel
-        setLoginObservers()
     }
     // end region
 
     // region private functions
+    private fun loadBitmapFromView(context: Context, v: View): Bitmap? {
+        val dm: DisplayMetrics = context.resources.displayMetrics
+        v.measure(
+            MeasureSpec.makeMeasureSpec(dm.widthPixels, MeasureSpec.EXACTLY),
+            MeasureSpec.makeMeasureSpec(dm.heightPixels, MeasureSpec.EXACTLY)
+        )
+        v.layout(0, 0, v.measuredWidth, v.measuredHeight)
+        val returnedBitmap = Bitmap.createBitmap(
+            v.measuredWidth,
+            v.measuredHeight, Bitmap.Config.ARGB_8888
+        )
+        val c = Canvas(returnedBitmap)
+        v.draw(c)
+        return returnedBitmap
+    }
+
     private fun setLoginObservers() {
-        mViewModel.logInObserver.observe(this, {
+        mViewModel.logInObserver.observe(this) {
             if (it)
                 startExtActivity(MainActivity::class.java, isFinish = true)
-        })
+        }
     }
     // end region
 

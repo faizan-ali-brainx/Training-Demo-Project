@@ -14,8 +14,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".activities.authActivites.LoginActivity">
 
         <androidx.constraintlayout.widget.Guideline
@@ -158,8 +160,7 @@
                     android:layout_marginTop="@dimen/margin_18"
                     app:cardBackgroundColor="@color/blue"
                     app:cardCornerRadius="@dimen/radius_4"
-                    app:cardElevation="0dp"
-                    android:onClick="@{(v)->viewModel.login(v)}">
+                    app:cardElevation="0dp">
 
                     <TextView
                         android:id="@+id/login_bv"

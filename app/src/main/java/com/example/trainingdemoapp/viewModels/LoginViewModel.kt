@@ -58,20 +58,22 @@ class LoginViewModel @Inject constructor(
 
     // region public functions
     fun login(v: View) {
-        if (isValid()) {
-            viewModelScope.launch(Dispatchers.IO) {
-                showProcessingLoader()
-                repository.signIn(getFieldsData(), {
-                    hideProcessingLoader()
-                    sharedPreferences.isUerLogin = true
-                    logInObserver.postValue(true)
-                }, {
-                    hideProcessingLoader()
-                    showToast(it.errorMsg)
-                    logInObserver.postValue(false)
-                })
-            }
-        }
+
+
+//        if (isValid()) {
+//            viewModelScope.launch(Dispatchers.IO) {
+//                showProcessingLoader()
+//                repository.signIn(getFieldsData(), {
+//                    hideProcessingLoader()
+//                    sharedPreferences.isUerLogin = true
+//                    logInObserver.postValue(true)
+//                }, {
+//                    hideProcessingLoader()
+//                    showToast(it.errorMsg)
+//                    logInObserver.postValue(false)
+//                })
+//            }
+//        }
     }
     // end region
 
